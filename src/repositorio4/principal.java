@@ -82,6 +82,7 @@ public class principal extends javax.swing.JFrame {
         jPanel1.add(txtvalor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 150, 30));
         jPanel1.add(txtresultado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 150, 30));
 
+        txtresultado2.setEditable(false);
         txtresultado2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtresultado2ActionPerformed(evt);
