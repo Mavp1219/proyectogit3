@@ -42,14 +42,17 @@ public class principal extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("CUOTA INICIAL POR METROS CUADRADOS");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 230, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 270, 30));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("METROS CUADRADOS: ");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 130, 30));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("CUOTA INICIAL :");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 114, 90, 20));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 100, 30));
 
         cmdcalcular.setText("CALCULAR");
         cmdcalcular.addActionListener(new java.awt.event.ActionListener() {
@@ -67,17 +70,30 @@ public class principal extends javax.swing.JFrame {
         });
         jPanel1.add(cmdborrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("RESTO DE CUOTAS :");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 164, 110, 20));
-        jPanel1.add(txtvalor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 100, 20));
-        jPanel1.add(txtresultado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 110, 20));
-        jPanel1.add(txtresultado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 100, 20));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 110, 30));
+
+        txtvalor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtvalor1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtvalor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 150, 30));
+        jPanel1.add(txtresultado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 150, 30));
+
+        txtresultado2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtresultado2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtresultado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 150, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,6 +127,14 @@ public class principal extends javax.swing.JFrame {
         
         txtvalor1.requestFocusInWindow();
     }//GEN-LAST:event_cmdborrarActionPerformed
+
+    private void txtresultado2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtresultado2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtresultado2ActionPerformed
+
+    private void txtvalor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtvalor1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtvalor1ActionPerformed
 
     /**
      * @param args the command line arguments
