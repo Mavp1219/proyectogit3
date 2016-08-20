@@ -5,6 +5,8 @@
  */
 package repositorio4;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author user
@@ -60,7 +62,7 @@ public class principal extends javax.swing.JFrame {
                 cmdcalcularActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdcalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
+        jPanel1.add(cmdcalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 243, 100, 30));
 
         cmdborrar.setText("BORRAR");
         cmdborrar.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +70,7 @@ public class principal extends javax.swing.JFrame {
                 cmdborrarActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdborrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, -1, -1));
+        jPanel1.add(cmdborrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 243, 80, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("RESTO DE CUOTAS :");
@@ -79,7 +81,14 @@ public class principal extends javax.swing.JFrame {
                 txtvalor1ActionPerformed(evt);
             }
         });
+        txtvalor1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtvalor1KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtvalor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 150, 30));
+
+        txtresultado1.setEditable(false);
         jPanel1.add(txtresultado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 150, 30));
 
         txtresultado2.setEditable(false);
@@ -105,27 +114,39 @@ public class principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdcalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdcalcularActionPerformed
-        double m2,op,ci,cf;
+        double m2, op, ci, cf;
         String res;
-        
-        m2 = Double.parseDouble(txtvalor1.getText());
-        
-        op = m2 * 80000;
-        
-        ci = op * 0.35;
-        
-        cf = (op - ci) / 12;
-        
-        txtresultado1.setText(String.valueOf(ci));
-        txtresultado2.setText(String.valueOf(cf));
-        
+
+        if (txtvalor1.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor ingrese el número de metros cuadrados", "Error", JOptionPane.ERROR_MESSAGE);
+            txtvalor1.requestFocusInWindow();
+            txtvalor1.selectAll();
+        } else {
+
+            m2 = Double.parseDouble(txtvalor1.getText());
+
+            if (m2 == 0) {
+                JOptionPane.showMessageDialog(this, "Ingrese un numero diferente de 0", "Error", JOptionPane.ERROR_MESSAGE);
+                txtvalor1.requestFocusInWindow();
+                txtvalor1.selectAll();
+            }
+
+            op = m2 * 80000;
+
+            ci = op * 0.35;
+
+            cf = (op - ci) / 12;
+
+            txtresultado1.setText(String.valueOf(ci));
+            txtresultado2.setText(String.valueOf(cf));
+        }
     }//GEN-LAST:event_cmdcalcularActionPerformed
 
     private void cmdborrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdborrarActionPerformed
         txtvalor1.setText("");
         txtresultado1.setText("");
         txtresultado2.setText("");
-        
+
         txtvalor1.requestFocusInWindow();
     }//GEN-LAST:event_cmdborrarActionPerformed
 
@@ -136,6 +157,14 @@ public class principal extends javax.swing.JFrame {
     private void txtvalor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtvalor1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtvalor1ActionPerformed
+
+    private void txtvalor1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvalor1KeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtvalor1KeyTyped
 
     /**
      * @param args the command line arguments
